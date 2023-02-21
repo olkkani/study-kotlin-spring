@@ -32,9 +32,11 @@ repositories {
 }
 
 dependencies {
-	// kotlin
+	// kotlin 필수 의존성
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	// getter setter 등을 kotlin 스럽게 생성자를 사용할 수 있다
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	// spring boot
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
