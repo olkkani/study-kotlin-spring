@@ -52,6 +52,7 @@ dependencies {
 	implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect")
 	// test
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("com.ninja-squad:springmockk:4.0.0")
 	// common
 	implementation("org.apache.commons:commons-text:1.10.0")
 	implementation("org.apache.commons:commons-lang3:3.12.0")
