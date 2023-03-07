@@ -79,7 +79,7 @@ subprojects{
 		// jwp 인증
 		implementation("com.auth0:java-jwt:3.19.2")
 		// other
-		implementation("commons-fileupload:commons-fileupload:1.4")
+		implementation("commons-fileupload:commons-fileupload:1.5")
 	}
 	// 멀티 모듈에서도 의존성을 제대로 가져오기 위한 설정
 	dependencyManagement{
