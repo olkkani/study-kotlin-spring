@@ -1,4 +1,4 @@
-package io.olkkani.dto;
+package io.olkkani.student.dto;
 
 import java.util.UUID;
 

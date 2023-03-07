@@ -1,4 +1,4 @@
-package io.olkkani.dto
+package io.olkkani.student
 
 import java.time.LocalDateTime
 

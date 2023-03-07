@@ -1,6 +1,4 @@
-package io.olkkani.dto
-
-import java.time.LocalDateTime
+package io.olkkani.student.dto
 
 fun main() {
     // java 스타일
