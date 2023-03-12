@@ -23,10 +23,8 @@ class WebConfig(
 
 @Component
 class AuthUserHandlerArgumentResolver : HandlerMethodArgumentResolver {
-    override fun supportsParameter(parameter: MethodParameter): Boolean {
+    override fun supportsParameter(parameter: MethodParameter): Boolean =
         AuthUser::class.java.isAssignableFrom(parameter.parameterType)
-        TODO("Not yet implemented")
-    }
 
     override fun resolveArgument(
         parameter: MethodParameter,
@@ -47,5 +45,5 @@ class AuthUserHandlerArgumentResolver : HandlerMethodArgumentResolver {
 data class AuthUser (
     val userId: Long,
     val username: String,
-    val profileUrlval : String?= null,
+    val profileUrl : String?= null,
 )

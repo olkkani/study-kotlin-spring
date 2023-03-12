@@ -18,14 +18,14 @@ class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(TokenExpiredException::class)
-    fun handlerServerException(ex:TokenExpiredException): ErrorResponse {
+    fun handleTokenExpiredException(ex:TokenExpiredException): ErrorResponse {
         logger.error { ex.message }
 
         return ErrorResponse(code = 401, message = "Token Expired Error")
     }
 
-    @ExceptionHandler(TokenExpiredException::class)
-    fun handleException(ex:TokenExpiredException): ErrorResponse {
+    @ExceptionHandler(Exception::class)
+    fun handleException(ex:Exception): ErrorResponse {
         logger.error { ex.message }
 
         return ErrorResponse(code = 500, message = "Internal Server Error")
