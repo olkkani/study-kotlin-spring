@@ -2,6 +2,7 @@ package io.olkkani.issueservice.service
 
 import io.olkkani.issueservice.domain.Issue
 import io.olkkani.issueservice.domain.IssueRepository
+import io.olkkani.issueservice.domain.enums.IssueStatus
 import io.olkkani.issueservice.model.IssueRequest
 import io.olkkani.issueservice.model.IssueResponse
 import org.springframework.stereotype.Service
@@ -23,4 +24,9 @@ class IssueService (
         )
         return IssueResponse(issueRepository.save(issue))
     }
+    @Transactional(readOnly = true)
+    fun getAll(status: IssueStatus)=
+        issueRepository.findAllByStatusOrderByCreatedAtDesc(status)
+            ?.map{IssueResponse(it)}
+
 }
