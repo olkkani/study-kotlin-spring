@@ -32,8 +32,7 @@ class AuthUserHandlerArgumentResolver : HandlerMethodArgumentResolver {
         webRequest: NativeWebRequest,
         binderFactory: WebDataBinderFactory?
     ): Any? {
-        TODO("Not yet implemented")
-
+        // TODO("Not yet implemented")
         return AuthUser (
             userId = 1,
             username = "테스트"
