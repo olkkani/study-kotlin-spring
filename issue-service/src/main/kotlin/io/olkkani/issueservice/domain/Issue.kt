@@ -3,6 +3,7 @@ package io.olkkani.issueservice.domain
 import io.olkkani.issueservice.domain.enums.IssuePriority
 import io.olkkani.issueservice.domain.enums.IssueStatus
 import io.olkkani.issueservice.domain.enums.IssueType
+import org.apache.commons.lang3.mutable.Mutable
 import javax.persistence.*
 
 @Entity
@@ -15,6 +16,9 @@ class Issue (
 
     @Column
     var userId: Long,
+
+    @OneToMany(fetch = FetchType.EAGER)
+    val comments: MutableList<Comment> = mutableListOf(),
 
     @Column
     var summary: String,

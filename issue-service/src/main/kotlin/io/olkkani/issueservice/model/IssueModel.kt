@@ -1,6 +1,7 @@
 package io.olkkani.issueservice.model
 
 import com.fasterxml.jackson.annotation.JsonFormat
+import io.olkkani.issueservice.domain.Comment
 import io.olkkani.issueservice.domain.Issue
 import io.olkkani.issueservice.domain.enums.IssuePriority
 import io.olkkani.issueservice.domain.enums.IssueStatus
@@ -17,6 +18,7 @@ data class IssueRequest (
 
 data class IssueResponse (
     val id: Long,
+    val comments: List<CommentResponse> = emptyList(),
     val summary: String,
     val description: String,
     val type: IssueType,
@@ -34,6 +36,7 @@ data class IssueResponse (
             with(issue) {
                 IssueResponse(
                     id = issue.id!!,
+                    comments = comments.sortedByDescending(Comment::id).map(Comment::toResponse),
                     summary = summary, description = description,
                     type = type,
                     priority = priority,
