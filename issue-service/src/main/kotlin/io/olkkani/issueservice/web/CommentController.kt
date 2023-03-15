@@ -6,6 +6,7 @@ import io.olkkani.issueservice.model.CommentResponse
 import io.olkkani.issueservice.service.CommentService
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -23,5 +24,10 @@ class CommentController (
     ) : CommentResponse {
         return commentService.create(issueId,authUser.userId, authUser.username, request)
     }
-
+    @PutMapping("/{id}")
+    fun edit(
+        authUser: AuthUser,
+        @PathVariable id: Long,
+        @RequestBody request: CommentRequest,
+    ) = commentService.edit(id, authUser.userId, request)
 }
