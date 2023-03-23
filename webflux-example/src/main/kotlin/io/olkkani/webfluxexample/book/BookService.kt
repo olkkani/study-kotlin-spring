@@ -1,4 +1,4 @@
-package io.oikkani.webfluxexample.book
+package io.olkkani.webfluxexample.book
 
 import org.springframework.stereotype.Service
 import org.springframework.web.bind.annotation.GetMapping

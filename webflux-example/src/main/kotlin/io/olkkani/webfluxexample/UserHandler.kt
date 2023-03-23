@@ -1,4 +1,4 @@
-package io.oikkani.webfluxexample
+package io.olkkani.webfluxexample
 
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.server.ServerRequest

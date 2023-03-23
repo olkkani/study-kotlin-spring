@@ -1,6 +1,6 @@
-package io.oikkani.webfluxexample.webclient
+package io.olkkani.webfluxexample.webclient
 
-import io.oikkani.webfluxexample.book.Book
+import io.olkkani.webfluxexample.book.Book
 import mu.KotlinLogging
 import org.slf4j.LoggerFactory
 import org.springframework.core.ParameterizedTypeReference

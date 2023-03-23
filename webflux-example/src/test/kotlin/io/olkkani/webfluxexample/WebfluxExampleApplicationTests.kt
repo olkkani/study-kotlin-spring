@@ -1,4 +1,4 @@
-package io.oikkani.webfluxexample
+package io.olkkani.webfluxexample
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

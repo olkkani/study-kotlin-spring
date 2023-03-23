@@ -1,4 +1,4 @@
-package io.oikkani.webfluxexample
+package io.olkkani.webfluxexample
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
