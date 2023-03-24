@@ -9,6 +9,7 @@ data class Book2(val id:Int, val name: String, val price: Int)
 
 @Service
 class BookService (
+//    private val bookRepository: BookRepository
 ){
     private final val nextId = AtomicInteger(0)
     val books = mutableListOf(
@@ -43,4 +44,12 @@ class BookService (
     }
 
 
+
+//    fun findByName(name: String) : Mono<Book> {
+//        return bookRepository.findByName(name)
+//    }
+//
+//    fun save(book : Book) : Mono<Book> {
+//        return bookRepository.save(book)
+//    }
 }
