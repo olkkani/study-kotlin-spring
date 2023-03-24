@@ -10,6 +10,8 @@ configurations {
 	}
 }
 
+val coroutinesVersion = "1.6.4"
+
 dependencies {
 //	implementation("org.springframework.boot:spring-boot-starter-web")
 //    implementation("org.springframework.boot:spring-boot-starter-undertow")
@@ -34,6 +36,9 @@ dependencies {
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 	testImplementation("io.projectreactor:reactor-test")
 //	implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:$coroutinesVersion")
+
 
 
 
