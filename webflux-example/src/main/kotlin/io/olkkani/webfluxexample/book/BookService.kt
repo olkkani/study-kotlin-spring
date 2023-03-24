@@ -1,33 +1,32 @@
 package io.olkkani.webfluxexample.book
 
 import org.springframework.stereotype.Service
-import org.springframework.web.bind.annotation.GetMapping
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 import java.util.concurrent.atomic.AtomicInteger
 
-data class Book(val id:Int, val name: String, val price: Int)
+data class Book2(val id:Int, val name: String, val price: Int)
 
 @Service
 class BookService (
 ){
     private final val nextId = AtomicInteger(0)
     val books = mutableListOf(
-        Book(id = nextId.incrementAndGet(), name = "kotlin in action", price = 30000),
-        Book(id = nextId.incrementAndGet(), name = "HTTP perfect guide", price = 40000)
+        Book2(id = nextId.incrementAndGet(), name = "kotlin in action", price = 30000),
+        Book2(id = nextId.incrementAndGet(), name = "HTTP perfect guide", price = 40000)
     )
-    fun getAll() : Flux<Book>{
+    fun getAll() : Flux<Book2>{
         return Flux.fromIterable(books)
     }
 
-    fun get(id: Int): Mono<Book> {
+    fun get(id: Int): Mono<Book2> {
         return Mono.justOrEmpty(books.find {it.id == id})
     }
 
-    fun add(request: Map<String, Any>): Mono<Book> {
+    fun add(request: Map<String, Any>): Mono<Book2> {
         return Mono.justOrEmpty(request)
             .map { map ->
-                val book = Book(
+                val book = Book2(
                     id = nextId.incrementAndGet(),
                     name = map["name"].toString(),
                     price = map["price"] as Int,

@@ -1,4 +1,4 @@
-package io.olkkani.webfluxexample.book.domain
+package io.olkkani.webfluxexample.book
 
 import org.springframework.data.repository.reactive.ReactiveCrudRepository
 import reactor.core.publisher.Mono

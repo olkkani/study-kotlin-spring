@@ -1,5 +1,7 @@
-package io.olkkani.webfluxexample.book
+package io.olkkani.webfluxexample.book.controller
 
+import io.olkkani.webfluxexample.book.Book2
+import io.olkkani.webfluxexample.book.BookService
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -15,15 +17,15 @@ class BookController (
 ){
 
     @GetMapping("/books")
-    fun getAll(): Flux<Book>{
+    fun getAll(): Flux<Book2>{
         return bookService.getAll()
     }
     @GetMapping("/books/{id}")
-    fun get(@PathVariable id: Int): Mono<Book>{
+    fun get(@PathVariable id: Int): Mono<Book2>{
         return bookService.get(id)
     }
     @PostMapping("/books")
-    fun add(@RequestBody request: Map<String, Any>): Mono<Book> {
+    fun add(@RequestBody request: Map<String, Any>): Mono<Book2> {
         return bookService.add(request)
     }
     @DeleteMapping("/books/{id}")

@@ -35,10 +35,7 @@ dependencies {
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 	testImplementation("io.projectreactor:reactor-test")
-//	implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
-
-
-
+	implementation("org.springframework.data:spring-data-r2dbc")
 
 }
 

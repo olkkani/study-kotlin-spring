@@ -1,7 +1,7 @@
 package io.olkkani.webfluxexample.book.controller
 
-import io.olkkani.webfluxexample.book.domain.Book
-import io.olkkani.webfluxexample.book.domain.BookRepository
+import io.olkkani.webfluxexample.book.Book
+import io.olkkani.webfluxexample.book.BookRepository
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
