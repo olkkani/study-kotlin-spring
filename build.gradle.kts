@@ -1,5 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+
+
 plugins {
 	id("org.springframework.boot") version "2.7.5" apply false
 	id("io.spring.dependency-management") version "1.1.0"
@@ -50,6 +52,8 @@ subprojects {
 		// Test
 		testImplementation("org.springframework.boot:spring-boot-starter-test")
 		testImplementation("com.ninja-squad:springmockk:4.0.0")
+
+		kapt("org.springframework.boot:spring-boot-configuration-processor")
 	}
 	// 멀티 모듈에서도 의존성을 제대로 가져오기 위한 설정
 	dependencyManagement {
