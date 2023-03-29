@@ -19,6 +19,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 
     implementation("at.favre.lib:bcrypt:0.9.0")
+    implementation("com.auth0:java-jwt:4.3.0")
 
     runtimeOnly("io.r2dbc:r2dbc-h2")
 }
