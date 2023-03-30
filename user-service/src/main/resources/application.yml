@@ -1,7 +1,6 @@
 server:
   port: 9090
 
-jwt
 jwt:
   issuer: java
   subject: auth

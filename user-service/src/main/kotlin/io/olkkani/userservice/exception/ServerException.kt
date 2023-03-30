@@ -15,3 +15,6 @@ data class UnAuthorizedException(
     override val message: String = "인증 정보가 잘못되었습니다",
 ): ServerException(401, message)
 
+data class UserExistsException(
+    override val message: String = "이미 존재하는 유저입니다."
+): ServerException(409, message)
