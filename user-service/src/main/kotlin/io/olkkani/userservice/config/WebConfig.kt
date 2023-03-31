@@ -41,7 +41,7 @@ class AuthTokenResolver: HandlerMethodArgumentResolver{
         bindingContext: BindingContext,
         exchange: ServerWebExchange
     ): Mono<Any> {
-        val authHeader = exchange.request.headers["Authroization"]?.first()
+        val authHeader = exchange.request.headers["Authorization"]?.first()
        checkNotNull(authHeader)
 
         val token = authHeader.split(" ")[1]
