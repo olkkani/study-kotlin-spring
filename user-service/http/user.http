@@ -1,0 +1,33 @@
+### UserController
+
+### 회원가입 확인
+POST http://localhost:9090/api/v1/users/signup
+Content-Type: application/json
+
+{
+  "email": "dev@gmail.com",
+  "password": "1234",
+  "username": "사용자"
+}
+
+<> 2023-03-31T225302.200.json
+<> 2023-03-31T225106.200.json
+
+### 잘못된 로그인 then 실패
+POST http://localhost:9090/api/v1/users/signin
+Content-Type: application/json
+
+{
+  "email": "dev@gmail.com",
+  "password": "12341"
+}
+
+<> 2023-03-31T225633.200.json
+<> 2023-03-31T225402.200.json
+<> 2023-03-31T225356.200.json
+
+### 로그아웃
+DELETE http://localhost:9090/api/v1/users/logout
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwcm9maWxlVXJsIjpudWxsLCJzdWIiOiJhdXRoIiwiaXNzIjoiamF2YSIsImlhdCI6MTY4MDI3MDk5MywidXNlcklkIjoxLCJlbWFpbCI6ImRldkBnbWFpbC5jb20iLCJ1c2VybmFtZSI6IuyCrOyaqeyekCJ9.uiROzQ94DKQ1hFflgiMzOjX3HRFCpoHrsell6tomUyc"
+
+<> 2023-03-31T225557.200.json
