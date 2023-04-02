@@ -1,0 +1,84 @@
+###
+POST http://localhost:8080/api/v1/issues
+Content-Type: application/json
+
+{
+  "summary": "새로운 이슈",
+  "description": "새로운 이슈입니다",
+  "type": "TASK",
+  "priority": "LOW",
+  "status": "TODO"
+}
+
+<> 2023-03-15T220154.200.json
+<> 2023-03-15T204938.200.json
+<> 2023-03-15T204739.200.json
+<> 2023-03-14T173113.200.json
+<> 2023-03-14T165417.200.json
+<> 2023-03-14T165329.200.json
+<> 2023-03-14T165315.200.json
+<> 2023-03-14T162610.200.json
+<> 2023-03-14T162608.200.json
+
+
+
+###
+GET http://localhost:8080/api/v1/issues
+
+<> 2023-03-14T162611.200.json
+
+### 이슈 목록 조회
+GET http://localhost:8080/api/v1/issues/1
+
+<> 2023-03-15T205020.200.json
+<> 2023-03-14T173119.200.json
+<> 2023-03-14T173116.200.json
+<> 2023-03-14T173027.200.json
+<> 2023-03-14T173022.200.json
+<> 2023-03-14T173018.200.json
+<> 2023-03-14T165418.200.json
+
+### 이슈 변경
+PUT http://localhost:8080/api/v1/issues/1
+Content-Type: application/json
+
+{
+  "summary": "변경할 이슈",
+  "description": "변경할 이슈입니다",
+  "type": "TASK",
+  "priority": "LOW",
+  "status": "IN_PROGRESS"
+}
+
+<> 2023-03-14T173118.200.json
+<> 2023-03-14T173110.200.json
+<> 2023-03-14T173031.200.json
+<> 2023-03-14T173002.200.json
+
+###
+DELETE http://localhost:8080/api/v1/issues/1
+
+### 코멘트 등록
+POST http://localhost:8080/api/v1/issues/1/comments
+Content-Type: application/json
+
+{
+  "body": "첫번째 댓글입니다."
+}
+
+<> 2023-03-15T220159.200.json
+<> 2023-03-15T204955.200.json
+<> 2023-03-15T204954.200.json
+
+### 코멘트 수정
+PUT http://localhost:8080/api/v1/issues/1/comments/1
+Content-Type: application/json
+
+{
+  "body": "변경된 댓글입니다."
+}
+
+<> 2023-03-15T220201.200.json
+
+### 코멘트 삭제
+DELETE http://localhost:8080/api/v1/issues/1/comments/1
