@@ -22,6 +22,15 @@ Content-Type: application/json
   "password": "12341"
 }
 
+### 잘못된 로그인 then 성공
+POST http://localhost:9090/api/v1/users/signin
+Content-Type: application/json
+
+{
+  "email": "dev@gmail.com",
+  "password": "1234"
+}
+
 <> 2023-03-31T225633.200.json
 <> 2023-03-31T225402.200.json
 <> 2023-03-31T225356.200.json
@@ -31,3 +40,8 @@ DELETE http://localhost:9090/api/v1/users/logout
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwcm9maWxlVXJsIjpudWxsLCJzdWIiOiJhdXRoIiwiaXNzIjoiamF2YSIsImlhdCI6MTY4MDI3MDk5MywidXNlcklkIjoxLCJlbWFpbCI6ImRldkBnbWFpbC5jb20iLCJ1c2VybmFtZSI6IuyCrOyaqeyekCJ9.uiROzQ94DKQ1hFflgiMzOjX3HRFCpoHrsell6tomUyc"
 
 <> 2023-03-31T225557.200.json
+
+
+### 내 정보 확인
+GET http://localhost:9090/api/v1/users/me
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwcm9maWxlVXJsIjpudWxsLCJzdWIiOiJhdXRoIiwiaXNzIjoiamF2YSIsImlhdCI6MTY4MDUyNzUwNSwidXNlcklkIjoxLCJlbWFpbCI6ImRldkBnbWFpbC5jb20iLCJ1c2VybmFtZSI6IuyCrOyaqeyekCJ9.NHmx94u2T5MV9wroPNiWLtlNxyZ0ONUQR6WJ6W2STkc

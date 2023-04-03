@@ -6,6 +6,7 @@ import io.olkkani.userservice.domain.model.SignInRequest
 import io.olkkani.userservice.domain.model.SignInResponse
 import io.olkkani.userservice.domain.model.SignUpRequest
 import io.olkkani.userservice.domain.repository.UserRepository
+import io.olkkani.userservice.exception.InvalidJwtTokenException
 import io.olkkani.userservice.exception.PasswordNotMatchedException
 import io.olkkani.userservice.exception.UserExistsException
 import io.olkkani.userservice.exception.UserNotFoundException
@@ -41,19 +42,21 @@ class UserService(
         }
     }
 
-    suspend fun signIn(signInRequest: SignInRequest) : SignInResponse{
-       return with(userRepository.findByEmail(signInRequest.email) ?: throw UserNotFoundException()) {
+    suspend fun signIn(signInRequest: SignInRequest): SignInResponse {
+        return with(
+            userRepository.findByEmail(signInRequest.email) ?: throw UserNotFoundException()
+        ) {
             val verified = BcryptUtils.verity(signInRequest.password, password)
             if (!verified) {
                 throw PasswordNotMatchedException()
             }
 
-        val jwtClaim = JWTClaim(
-            userId = id!!,
-            email = email,
-            profileUrl = profileUrl,
-            username = username
-        )
+            val jwtClaim = JWTClaim(
+                userId = id!!,
+                email = email,
+                profileUrl = profileUrl,
+                username = username
+            )
             val token = JWTUtils.createToken(jwtClaim, jwpProperties)
             cacheManager.awaitPut(key = token, value = this, ttl = CACHE_TTL)
             SignInResponse(
@@ -67,5 +70,21 @@ class UserService(
     suspend fun logout(token: String) {
         cacheManager.awaitEvict(token)
 
+    }
+
+    suspend fun getByToken(token: String): User {
+        val cachedUser = cacheManager.awaitGetOrPut(key = token, ttl = CACHE_TTL) {
+            // 캐시가 유효하지 않은 경우
+            val decodeJWT = JWTUtils.decode(token, jwpProperties.secret, jwpProperties.issuer)
+            val userId: Long =
+                decodeJWT.claims["userId"]?.asLong() ?: throw InvalidJwtTokenException()
+            get(userId)
+
+        }
+        return cachedUser
+    }
+
+    suspend fun get(userId:Long) : User {
+        return userRepository.findById(userId) ?: throw UserNotFoundException()
     }
 }
