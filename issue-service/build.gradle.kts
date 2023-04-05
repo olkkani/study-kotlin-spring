@@ -17,9 +17,13 @@ dependencies {
 //    implementation("org.springframework.boot:spring-boot-devtools")
     implementation("org.springframework.boot:spring-boot-starter-log4j2")
 
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
     // view template
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect")
+
+    implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 
     // persistence
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
